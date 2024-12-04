@@ -25,6 +25,20 @@ class Candidate:
         con.close()
         return True
 
+    def load(self):
+        sql = "SELECT candidate_id, candidate_name, candidate_house FROM candidate WHERE candidate_name = 'Cassim'"
+        con = db.connect("database\\candidate.db")
+        cur = con.cursor()
+        cur.execute(sql, (self.candidate_id,self.candidate_name,self.candidate_house))
+        row = cur.fetchone()
+        cur.close()
+        con.close()
+        self.candidate_id = row[0]
+        self.candidate_name= row[1]
+        self.candidate_house=row[2]
+
+        return True
+
     def delete(self):
         sql = "DELETE FROM candidate WHERE candidate_name = ?"
         con = db.connect("database\\candidate.db")
