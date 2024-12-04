@@ -27,7 +27,7 @@ class Candidate:
 
     def delete(self):
         sql = "DELETE FROM candidate WHERE candidate_name = ?"
-        con = db.connect("database\\login.db")
+        con = db.connect("database\\candidate.db")
         cur = con.cursor()
         cur.execute(sql, (self.candidate_name,))
         con.commit()
