@@ -11,10 +11,10 @@ class House:
 
 
     def save(self):
-        sql = "INSERT INTO house (house, color, president, secretory, candidate) VALUES (?, ?)"
+        sql = "INSERT INTO house (house, color, president, secretory, candidate) VALUES (?, ?, ?, ?, ?);"
         con = db.connect("database\\login.db")
         cur = con.cursor()
-        cur.execute(sql, (self.username, self.password))
+        cur.execute(sql, (self.house, self.color, self.president, self.secretory, self.candidate))
         con.commit()
         cur.close()
         con.close()
