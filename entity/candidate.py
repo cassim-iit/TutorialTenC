@@ -14,3 +14,13 @@ class Candidate:
         con.commit()
         cur.close()
         con.close()
+
+    def delete(self):
+        sql = "DELETE FROM candidate WHERE candidate_name = ?"
+        con = db.connect("database\\login.db")
+        cur = con.cursor()
+        cur.execute(sql, (self.candidate_name,))
+        con.commit()
+        cur.close()
+        con.close()
+        return True
