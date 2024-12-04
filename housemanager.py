@@ -15,6 +15,16 @@ def initializeDatabase():
     con.close()
 
 
+def insertHouse(house, color, president, secretory, candidate):
+    oHouse = House()
+    oHouse.house = house
+    oHouse.color = color
+    oHouse.president = president
+    oHouse.secretory = secretory
+    oHouse.candidate = candidate
+    oHouse.save()
+
+
 def updateHouse(house, color, president, secretory, candidate):
     oHouse = House()
     oHouse.house = house
@@ -24,18 +34,15 @@ def updateHouse(house, color, president, secretory, candidate):
     oHouse.candidate = candidate
     oHouse.update()
 
+
 def getHouse(house):
         ohouse = House()
         ohouse.house = house
         ohouse.load()
         return ohouse
-
-
-def insertUser(house, color, president, secretory, candidate):
+    
+    
+def removeHouse(house):
     oHouse = House()
     oHouse.house = house
-    oHouse.color = color
-    oHouse.president = president
-    oHouse.secretory = secretory
-    oHouse.candidate = candidate
-    oHouse.save()
+    oHouse.delete()

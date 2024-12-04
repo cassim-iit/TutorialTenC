@@ -16,7 +16,7 @@ class Candidate:
         con.close()
 
     def update(self):
-        sql = "UPDATE candidate SET candidate_name = ? WHERE candiate_id = ?"
+        sql = "UPDATE candidate SET candidate_name = ? WHERE candidate_id = ?"
         con = db.connect("database\\candidate.db")
         cur = con.cursor()
         cur.execute(sql, (self.candidate_name, self.candidate_id))
