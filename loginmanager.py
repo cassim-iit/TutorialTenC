@@ -58,33 +58,39 @@ def printUserList(oUsers):
     for oUser in oUsers:
         print(oUser.username, oUser.password)
 
+
 def menu():
     x = 0
-    while (x != 9):
+    while x != 9:
         print("1. Show all users\n"
               "2. Add new user\n"
               "3. Remove user\n"
               "4. Update user\n"
               "9. Exit")
         x = int(input("Enter your choice: "))
-        match x:
-            case 1:
-                oList = getAllUsers()
-                printUserList(oList)
-            case 2:
-                userName = input("Enter your username: ")
-                passWord = input("Enter your password: ")
-                insertUser(userName, passWord)
-                print("User added successfully")
-            case 3:
-                userName = input("Enter your username: ")
-                removeUser(userName)
-                print("User removed successfully")
-            case 4:
-                userName = input("Enter your username: ")
-                passWord = input("Enter your password: ")
-                updateUser(userName, passWord)
-                print("User updated successfully")
+
+        if x == 1:
+            oList = getAllUsers()
+            printUserList(oList)
+        elif x == 2:
+            userName = input("Enter your username: ")
+            passWord = input("Enter your password: ")
+            insertUser(userName, passWord)
+            print("User added successfully")
+        elif x == 3:
+            userName = input("Enter your username: ")
+            removeUser(userName)
+            print("User removed successfully")
+        elif x == 4:
+            userName = input("Enter your username: ")
+            passWord = input("Enter your password: ")
+            updateUser(userName, passWord)
+            print("User updated successfully")
+        elif x == 9:
+            print("Exiting the program.")
+        else:
+            print("Invalid choice. Please try again.")
+
 
 #main for this module
 initializeDatabase()
