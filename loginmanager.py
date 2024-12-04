@@ -59,7 +59,7 @@ def printUserList(oUsers):
         print(oUser.username, oUser.password)
 
 def menu():
-    x = 0;
+    x = 0
     while (x != 9):
         print("1. Show all users\n"
               "2. Add new user\n"
