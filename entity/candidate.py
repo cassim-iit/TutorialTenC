@@ -16,10 +16,10 @@ class Candidate:
         con.close()
 
     def update(self):
-        sql = "UPDATE candidate SET canditateID = ? WHERE userName = ?"
-        con = db.connect("database\\login.db")
+        sql = "UPDATE candidate SET candidate_name = ? WHERE candiate_id = ?"
+        con = db.connect("database\\candidate.db")
         cur = con.cursor()
-        cur.execute(sql, (self.candidateID, self.username))
+        cur.execute(sql, (self.candidate_name, self.candidate_id))
         con.commit()
         cur.close()
         con.close()
