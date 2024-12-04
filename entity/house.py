@@ -20,15 +20,18 @@ class House:
         con.close()
 
     def load(self):
-        sql = "SELECT userName,passWord FROM user WHERE userName = ?"
+        sql = "SELECT house,color,president,secretory,candidate FROM house WHERE house=?"
         con = db.connect("database\\login.db")
         cur = con.cursor()
-        cur.execute(sql, (self.username,))
+        cur.execute(sql, (self.house,))
         row = cur.fetchone()
         cur.close()
         con.close()
-        self.username = row[0]
-        self.password = row[1]
+        self.house = row[0]
+        self.color= row[1]
+        self.president=row[2]
+        self.secretory=row[3]
+        self.candidate=row[4]
         return True
 
     def delete(self):
@@ -42,10 +45,10 @@ class House:
         return True
 
     def update(self):
-        sql = "UPDATE user SET passWord = ? WHERE userName = ?"
-        con = db.connect("database\\login.db")
+        sql = "UPDATE hosue SET house = ? , color = ? , president= ?, secretory=?, candidate=? WHERE house = ?"
+        con = db.connect("database\\house.db")
         cur = con.cursor()
-        cur.execute(sql, (self.password, self.username))
+        cur.execute(sql, (self.house, self.color, self.president, self.secretory, self.candidate))
         con.commit()
         cur.close()
         con.close()
