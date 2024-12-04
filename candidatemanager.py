@@ -10,3 +10,14 @@ def initializeDatabase():
     con.close()
 
 initializeDatabase()
+
+
+def update(self):
+    sql = "UPDATE candidate SET canditateID = ? WHERE userName = ?"
+    con = db.connect("database\\login.db")
+    cur = con.cursor()
+    cur.execute(sql, (self.candidateID, self.username))
+    con.commit()
+    cur.close()
+    con.close()
+    return True

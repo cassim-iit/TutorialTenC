@@ -38,10 +38,10 @@ class User:
         return True
 
     def update(self):
-        sql = "UPDATE user SET passWord = ? WHERE userName = ?"
+        sql = "UPDATE candidate SET canditateID = ? WHERE userName = ?"
         con = db.connect("database\\login.db")
         cur = con.cursor()
-        cur.execute(sql, (self.password, self.username))
+        cur.execute(sql, (self.candidateID, self.username))
         con.commit()
         cur.close()
         con.close()
