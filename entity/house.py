@@ -42,10 +42,10 @@ class House:
         return True
 
     def update(self):
-        sql = "UPDATE user SET passWord = ? WHERE userName = ?"
-        con = db.connect("database\\login.db")
+        sql = "UPDATE hosue SET house = ? , color = ? , president= ?, secretory=?, candidate=? WHERE house = ?"
+        con = db.connect("database\\house.db")
         cur = con.cursor()
-        cur.execute(sql, (self.password, self.username))
+        cur.execute(sql, (self.house, self.color, self.president, self.secretory, self.candidate))
         con.commit()
         cur.close()
         con.close()
