@@ -15,6 +15,16 @@ class Candidate:
         cur.close()
         con.close()
 
+    def update(self):
+        sql = "UPDATE candidate SET canditateID = ? WHERE userName = ?"
+        con = db.connect("database\\login.db")
+        cur = con.cursor()
+        cur.execute(sql, (self.candidateID, self.username))
+        con.commit()
+        cur.close()
+        con.close()
+        return True
+
     def delete(self):
         sql = "DELETE FROM candidate WHERE candidate_name = ?"
         con = db.connect("database\\login.db")
